@@ -73,8 +73,9 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   }
   #projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-direction: column;
+
     gap: 1.5rem;
   }
   footer {
@@ -136,7 +137,6 @@
 
     <section id="projects">
       <h2>Projects</h2>
-      <br/>
       <div class="project-item">
         <h3>PoliLight: JSON-based Policy Enforcement Engine for IoT Edge Devices</h3>
         <ul>
