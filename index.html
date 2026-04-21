@@ -3,209 +3,619 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atharv Abhay Kulkarni | Cybersecurity Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <title>Atharv Kulkarni — AI Security Engineer</title>
+  <meta name="description" content="AI Security Engineer designing agentic systems for security, compliance, and trust.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface-2: #151515;
+    --border: #1f1f1f;
+    --border-strong: #2a2a2a;
+    --text: #ededed;
+    --text-dim: #8a8a8a;
+    --text-soft: #b8b8b8;
+    --accent: #22d3ee;
+    --accent-soft: rgba(34, 211, 238, 0.08);
+    --accent-glow: rgba(34, 211, 238, 0.15);
+    --success: #22c55e;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
-    line-height: 1.6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(34, 211, 238, 0.05), transparent 40%),
+      radial-gradient(circle at 80% 100%, rgba(34, 211, 238, 0.03), transparent 40%);
+    background-attachment: fixed;
   }
-  header {
-    background: linear-gradient(135deg, #1f1f1f, #111);
-    padding: 3rem 2rem;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-  }
-  header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-    color: #fff;
-  }
-  header p {
-    color: #bbbbbb;
-    margin-top: 0.5rem;
-  }
-  nav {
-    margin-top: 1rem;
-  }
-  nav a {
-    margin: 0 0.75rem;
-    color: #00bcd4;
-    text-decoration: none;
-    font-weight: 700;
-  }
-  nav a:hover {
-    color: #80deea;
-  }
-  .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 2rem;
-    background: #1b1b1b;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  }
-  section {
-    margin-bottom: 3rem;
-  }
-  h2 {
-    color: #00bcd4;
-    border-bottom: 1px solid #333;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  ul li {
-    margin: 0.5rem 0;
-  }
-  .experience-item, .project-item {
-    background: #181818;
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  }
-  #projects {
-    display: flex;
-    flex-direction: column;
+  .mono { font-family: 'JetBrains Mono', monospace; }
 
-    gap: 1.5rem;
+  /* Nav */
+  nav.top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(12px);
+    background: rgba(10, 10, 10, 0.7);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
   }
-  footer {
-    text-align: center;
-    padding: 2rem;
-    background: #1f1f1f;
-    color: #777;
+  nav.top .brand {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    font-size: 0.95rem;
+  }
+  nav.top .brand .dot { color: var(--accent); }
+  nav.top ul {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
     font-size: 0.9rem;
   }
-  a {
-    color: #00bcd4;
+  nav.top ul a {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s ease;
   }
-  a:hover {
-    color: #80deea;
+  nav.top ul a:hover { color: var(--accent); }
+  nav.top ul a .num {
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    margin-right: 0.35rem;
+  }
+
+  /* Layout */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-of-type { border-bottom: none; }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 2rem;
+    color: var(--text);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 7rem 0 5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero .greeting {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    margin: 0 0 0.75rem;
+    background: linear-gradient(180deg, #ffffff 0%, #9a9a9a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero h2 {
+    font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+    font-weight: 500;
+    color: var(--text-soft);
+    margin: 0 0 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  .hero .lede {
+    font-size: 1.05rem;
+    color: var(--text-dim);
+    max-width: 580px;
+    margin: 0 0 2rem;
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.45rem 0.85rem;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    margin-bottom: 2rem;
+  }
+  .status .pulse {
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+    70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+  }
+  .socials {
+    display: flex;
+    gap: 0.75rem;
+  }
+  .socials a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-strong);
+    border-radius: 8px;
+    color: var(--text-dim);
+    transition: all 0.2s ease;
+    background: var(--surface);
+  }
+  .socials a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    transform: translateY(-2px);
+  }
+  .socials svg { width: 18px; height: 18px; }
+
+  /* About */
+  .about p {
+    color: var(--text-soft);
+    margin: 0 0 1.25rem;
+  }
+  .about strong { color: var(--text); font-weight: 600; }
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 2.25rem;
+  }
+  .focus-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    transition: all 0.2s ease;
+  }
+  .focus-card:hover {
+    border-color: var(--accent);
+    background: var(--surface-2);
+    transform: translateY(-2px);
+  }
+  .focus-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .focus-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+  .background-line {
+    margin-top: 2.5rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border-left: 2px solid var(--accent);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--text-soft);
+  }
+
+  /* Experience */
+  .exp-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .exp-header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  .exp-header .dates {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+  .exp-role {
+    color: var(--accent);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+  .exp-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0;
+  }
+  .exp-item li {
+    color: var(--text-soft);
+    font-size: 0.92rem;
+    padding-left: 1.25rem;
+    position: relative;
+    margin-bottom: 0.45rem;
+  }
+  .exp-item li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+    top: 0.3rem;
+  }
+
+  /* Projects */
+  .projects {
+    display: grid;
+    gap: 1rem;
+  }
+  .project {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+  .project:hover {
+    border-color: var(--accent);
+    background: var(--surface-2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px var(--accent-glow);
+  }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+  }
+  .project h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .project h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .project h3 a:hover { color: var(--accent); }
+  .project .repo-link {
+    color: var(--text-dim);
+    transition: color 0.2s ease;
+    flex-shrink: 0;
+  }
+  .project .repo-link:hover { color: var(--accent); }
+  .project .repo-link svg { width: 18px; height: 18px; display: block; }
+  .project p {
+    color: var(--text-soft);
+    margin: 0 0 0.85rem;
+    font-size: 0.92rem;
+  }
+  .metrics {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin: 0.85rem 0;
+    padding: 0.65rem 0.85rem;
+    background: var(--accent-soft);
+    border-radius: 6px;
+    font-size: 0.82rem;
+  }
+  .metrics span { color: var(--text-soft); }
+  .metrics strong { color: var(--accent); font-weight: 600; }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.85rem;
+  }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    padding: 0.2rem 0.55rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 4px;
+    color: var(--text-dim);
+  }
+
+  /* Contact */
+  .contact-wrap {
+    text-align: center;
+    padding: 2rem 0;
+  }
+  .contact-wrap h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .contact-wrap p {
+    color: var(--text-dim);
+    max-width: 480px;
+    margin: 0 auto 2rem;
+  }
+  .contact-email {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 0.85rem 1.5rem;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+  .contact-email:hover {
+    background: var(--accent-soft);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px var(--accent-glow);
+  }
+
+  footer {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  footer .mono { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    nav.top { padding: 0.85rem 1.25rem; }
+    nav.top ul { gap: 1rem; }
+    nav.top ul a .num { display: none; }
+    main { padding: 0 1.25rem; }
+    section { padding: 3.5rem 0; }
+    .hero { padding: 4rem 0 3.5rem; }
   }
 </style>
 </head>
 <body>
-  <header>
-    <h1>Atharv Abhay Kulkarni</h1>
-    <p>Cybersecurity Analyst | GRC | Ethical Hacking</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <nav class="top">
+    <div class="brand">_atharv<span class="dot">.</span></div>
+    <ul>
+      <li><a href="#about"><span class="num">01</span>About</a></li>
+      <li><a href="#work"><span class="num">02</span>Work</a></li>
+      <li><a href="#projects"><span class="num">03</span>Projects</a></li>
+      <li><a href="#contact"><span class="num">04</span>Contact</a></li>
+    </ul>
+  </nav>
 
-  <div class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I am a passionate cybersecurity professional with a strong foundation in Governance, Risk, and Compliance (GRC), penetration testing, and cloud security. With over two years of experience in both technical and consulting roles, I’ve contributed to enterprise-level security assessments, compliance automation projects, and offensive security simulations.</p>
-      <p>Currently pursuing my Master's in Cybersecurity at the University of Maryland, Baltimore County, I bring a blend of academic excellence (GPA: 3.833) and hands-on skills to every challenge. My journey spans from scripting in Unix/Linux to deploying secure network architectures, crafting GRC templates, performing vulnerability scans, and exploring AI for threat detection.</p>
-      <p>I believe in continuous learning, creativity in problem-solving, and using technology to create meaningful security solutions. Whether it's refining compliance posture, simulating attacks in a home lab, or contributing to cutting-edge research, I strive to push the boundaries of cybersecurity excellence.</p>
+  <main>
+    <header class="hero">
+      <div class="greeting">&gt; hello, I'm</div>
+      <h1>Atharv Kulkarni.</h1>
+      <h2>AI Security Engineer.</h2>
+      <p class="lede">I design AI systems that automate security, compliance, and trust — building agentic platforms that translate regulatory language into executable security workflows.</p>
+      <div class="status">
+        <span class="pulse"></span>
+        Currently at Ardent Privacy — architecting agentic AI platforms
+      </div>
+      <div class="socials">
+        <a href="https://github.com/athukarad109" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.54-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.31-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.54.12-3.21 0 0 1.01-.32 3.3 1.23a11.43 11.43 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.67.25 2.9.12 3.21.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.63-5.49 5.93.43.38.82 1.11.82 2.24v3.32c0 .32.22.7.83.58C20.57 22.3 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/athukarad109/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 11.01-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+        </a>
+        <a href="https://twitter.com/athukarad109" target="_blank" rel="noopener" aria-label="Twitter / X">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="mailto:athukarad109@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <section id="about" class="about">
+      <span class="section-label">// 01 — about</span>
+      <h2>Security, engineered by AI.</h2>
+      <p>At <strong>Ardent Privacy</strong>, I architect agentic AI platforms that translate regulatory language into executable security workflows. I built an autonomous <strong>AI Consent Auditor</strong> using GPT-4 and Claude that scans live websites, models consent flows, and evaluates compliance against GDPR and DPDPA — processing 200+ real assessments at ~95% accuracy and cutting manual review time by 40%.</p>
+      <p>On the offensive side, I built an agentic reverse-engineering assistant by integrating <strong>Ghidra with the Model Context Protocol (MCP)</strong>, letting AI models analyze binaries, rename functions, detect anti-reversing patterns, and accelerate malware triage by 60%.</p>
+      <p>My work sits at the intersection of:</p>
+
+      <div class="focus-grid">
+        <div class="focus-card">
+          <h4>AI Security &amp; Agentic Systems</h4>
+          <p>LLM security, MCP architectures, autonomous agents, prompt-driven development, secure AI workflows.</p>
+        </div>
+        <div class="focus-card">
+          <h4>Application &amp; Cloud Security</h4>
+          <p>Threat modeling, secure API design, OWASP Top 10, container security, multi-tenant architectures.</p>
+        </div>
+        <div class="focus-card">
+          <h4>Compliance &amp; Governance</h4>
+          <p>GDPR, HIPAA, SOC 2, ISO 27001, NIST CSF — automated control harmonization and evidence generation.</p>
+        </div>
+      </div>
+
+      <div class="background-line">
+        <strong>Background:</strong> MS in Cybersecurity, UMBC (3.8 GPA) · CompTIA Security+ · Previously supported large-scale cloud migration validation for Lloyds Banking Group at Wipro.
+      </div>
     </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="experience-item">
-        <h3>Ardent Privacy | Cybersecurity GRC Intern (Apr 2025 - Present)</h3>
+    <section id="work">
+      <span class="section-label">// 02 — experience</span>
+      <h2>Where I've worked.</h2>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3>Ardent Privacy</h3>
+          <span class="dates">Apr 2025 — Present</span>
+        </div>
+        <div class="exp-role">AI Security Engineer</div>
         <ul>
-          <li>Designed and streamlined 10+ GRC automation templates for faster compliance audits.</li>
-          <li>Interpreted major cybersecurity frameworks (NIST, ISO 27001, PCI DSS) for accurate control mapping.</li>
-          <li>Refined 30+ security policy documents, reducing audit prep time by 25%.</li>
-          <li>Collaborated with cross-functional teams to align policy with operational and regulatory requirements.</li>
+          <li>Architect agentic AI platforms that translate regulatory frameworks (GDPR, DPDPA, HIPAA, SOC 2) into executable security workflows.</li>
+          <li>Built autonomous AI Consent Auditor (GPT-4 + Claude) — 200+ assessments, ~95% accuracy, 40% reduction in manual review time.</li>
+          <li>Engineered Ghidra-MCP integration for agentic reverse engineering, accelerating malware triage by 60%.</li>
+          <li>Designed GRC automation across NIST CSF, ISO 27001, PCI DSS for healthcare and fintech clients.</li>
         </ul>
       </div>
-      <div class="experience-item">
-        <h3>Wipro Ltd | Software Test Engineer (Apr 2022 – Jul 2024)</h3>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3>Wipro Ltd</h3>
+          <span class="dates">Apr 2022 — Jul 2024</span>
+        </div>
+        <div class="exp-role">Software Test Engineer · Lloyds Banking Group</div>
         <ul>
-          <li>Validated 500+ scenarios in the TLMP migration, achieving 98.6% data accuracy in production.</li>
-          <li>Automated 12 recurring test workflows with shell scripts, saving 18+ hours weekly.</li>
-          <li>Executed 250+ test cases and resolved 100+ Jira issues to ensure a 98.4% defect-free release.</li>
-          <li>Queried Oracle DBs with SQL for security posture validation and created risk reports for 100+ gaps.</li>
+          <li>Supported large-scale cloud migration validation for Lloyds Banking Group, strengthening security controls in enterprise banking.</li>
+          <li>Validated 500+ TLMP migration scenarios with 98.6% data accuracy in production.</li>
+          <li>Automated 12 recurring workflows with shell scripting, saving 18+ engineering hours weekly.</li>
+          <li>Queried Oracle DBs with SQL for security posture validation; reported 100+ gaps across risk register.</li>
         </ul>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <div class="project-item">
-        <h3>PoliLight: JSON-based Policy Enforcement Engine for IoT Edge Devices</h3>
-        <ul>
-          <li>Designed and implemented a lightweight policy engine in JSON to enforce security rules on IoT edge nodes, preventing unauthorized operations.</li>
-          <li>Enabled modular, transparent policy management with enforcement logic triggered at the device level for real-time resilience.</li>
-          <li>Demonstrated via a simulated network of ThingsBoard-connected devices, highlighting practical security for resource-constrained environments.</li>
-        </ul>
-      </div>
-      <div class="project-item">
-        <h3>Enterprise Security Lab Simulations</h3>
-        <ul>
-          <li>Completed all enterprise security lab simulations by Jones & Bartlett with 100% accuracy.</li>
-          <li>Designed secure network architectures and implemented access control mechanisms.</li>
-          <li>Used Infection Monkey and Nessus to simulate attacks and identify 25+ vulnerabilities.</li>
-          <li>Tested TCP/IP, HTTP, BGP protocols for weaknesses and implemented mitigations.</li>
-          <li>Built risk registers aligned with NIST and NY DFS Part 500 compliance.</li>
-        </ul>
-      </div>
-      <div class="project-item">
-        <h3>Home Lab – Offensive Security & Exploitation</h3>
-        <ul>
-          <li>Set up Kali Linux and Metasploitable VMs to practice real-world exploit techniques.</li>
-          <li>Exploited services like Samba, SSH, and HTTP via Metasploit and custom scripts.</li>
-          <li>Practiced brute-force, misconfiguration, and privilege escalation attacks.</li>
-        </ul>
-      </div>
-      <div class="project-item">
-        <h3>Web Exploitation & Secure Code Review</h3>
-        <ul>
-          <li>Conducted web pentests and API exploitation with Burp Suite and OWASP ZAP.</li>
-          <li>Exploited SQLi, XSS, CSRF, and login bypass vulnerabilities.</li>
-          <li>Reviewed insecure code snippets using OWASP Top 10 and best practices.</li>
-        </ul>
-      </div>
-      <div class="project-item">
-        <h3>Phishing URL Detection with AI</h3>
-        <ul>
-          <li>Evaluated Decision Tree, Random Forest, and GPT-3.5 Turbo for phishing detection.</li>
-          <li>Achieved 96% accuracy, ensuring ML model performance aligned with cybersecurity standards.</li>
-          <li>Built detection pipelines to classify URLs and prevent phishing threats in real-time.</li>
-        </ul>
-      </div>
-      <div class="project-item">
-        <h3>Reverse Phishing Simulation using AWS & BeEF Framework</h3>
-        <ul>
-          <li>Engineered a phishing simulation using a custom-crafted email that led to successful browser hook interaction.</li>
-          <li>Deployed BeEF on an AWS EC2 instance with masked IP-based URL redirection for social engineering delivery.</li>
-          <li>Captured live data from the victim browser without deploying a payload, showcasing risk of client-side attacks.</li>
-          <li>Designed for awareness and ethical demonstration of phishing tactics in real-world scenarios.</li>
-        </ul>
-      </div>
-      <div class="project-item">
-        <h3>Risk Register for Compliance (NIST & NY DFS Part 500)</h3>
-        <ul>
-          <li>Created a detailed risk register covering 10 business processes, with 20+ threat scenarios and 50+ mapped controls across NIST and NY DFS compliance domains.</li>
-          <li>Delivered an executive-ready report with a compliance readiness score of 95%, supported by quantified risk scores and control effectiveness metrics.</li>
-        </ul>
+      <span class="section-label">// 03 — projects</span>
+      <h2>Selected work.</h2>
+
+      <div class="projects">
+        <div class="project">
+          <div class="project-header">
+            <h3>AI Consent Auditor</h3>
+          </div>
+          <p>Autonomous agent using GPT-4 and Claude that scans live websites, models consent flows, and evaluates compliance against GDPR &amp; DPDPA — enabling continuous monitoring for healthcare and fintech organizations.</p>
+          <div class="metrics">
+            <span><strong>200+</strong> assessments</span>
+            <span><strong>~95%</strong> accuracy</span>
+            <span><strong>40%</strong> faster review</span>
+          </div>
+          <div class="tags">
+            <span class="tag">GPT-4</span>
+            <span class="tag">Claude</span>
+            <span class="tag">GDPR</span>
+            <span class="tag">DPDPA</span>
+            <span class="tag">Agentic AI</span>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <h3><a href="https://github.com/athukarad109/ghidra-mcp" target="_blank" rel="noopener">Ghidra-MCP Reverse Engineering Assistant</a></h3>
+            <a href="https://github.com/athukarad109/ghidra-mcp" target="_blank" rel="noopener" class="repo-link" aria-label="View on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.54-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.31-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.54.12-3.21 0 0 1.01-.32 3.3 1.23a11.43 11.43 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.67.25 2.9.12 3.21.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.63-5.49 5.93.43.38.82 1.11.82 2.24v3.32c0 .32.22.7.83.58C20.57 22.3 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z"/></svg>
+            </a>
+          </div>
+          <p>Integrates Ghidra with the Model Context Protocol so AI models can analyze binaries, rename functions, and detect anti-reversing patterns — bringing agentic workflows to malware triage.</p>
+          <div class="metrics">
+            <span><strong>60%</strong> faster triage</span>
+          </div>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Ghidra</span>
+            <span class="tag">MCP</span>
+            <span class="tag">Reverse Engineering</span>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <h3><a href="https://github.com/athukarad109/GRC_taxonomy_harmonizer" target="_blank" rel="noopener">GRC Taxonomy Harmonizer</a></h3>
+            <a href="https://github.com/athukarad109/GRC_taxonomy_harmonizer" target="_blank" rel="noopener" class="repo-link" aria-label="View on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.54-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.31-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.54.12-3.21 0 0 1.01-.32 3.3 1.23a11.43 11.43 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.67.25 2.9.12 3.21.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.63-5.49 5.93.43.38.82 1.11.82 2.24v3.32c0 .32.22.7.83.58C20.57 22.3 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z"/></svg>
+            </a>
+          </div>
+          <p>Automated control harmonization across GRC frameworks — maps overlapping requirements between NIST, ISO 27001, SOC 2, and HIPAA to eliminate duplicate evidence collection.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">NIST</span>
+            <span class="tag">ISO 27001</span>
+            <span class="tag">Compliance</span>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <h3><a href="https://github.com/athukarad109/dsar-automation" target="_blank" rel="noopener">DSAR Automation</a></h3>
+            <a href="https://github.com/athukarad109/dsar-automation" target="_blank" rel="noopener" class="repo-link" aria-label="View on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.54-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.31-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.54.12-3.21 0 0 1.01-.32 3.3 1.23a11.43 11.43 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.67.25 2.9.12 3.21.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.63-5.49 5.93.43.38.82 1.11.82 2.24v3.32c0 .32.22.7.83.58C20.57 22.3 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z"/></svg>
+            </a>
+          </div>
+          <p>Automates Data Subject Access Requests end-to-end — identity verification, data discovery across systems, redaction, and audit-ready response packaging for GDPR/DPDPA.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Privacy</span>
+            <span class="tag">GDPR</span>
+            <span class="tag">DPDPA</span>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <h3><a href="https://github.com/athukarad109/poli-light" target="_blank" rel="noopener">PoliLight</a></h3>
+            <a href="https://github.com/athukarad109/poli-light" target="_blank" rel="noopener" class="repo-link" aria-label="View on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.54-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.31-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.54.12-3.21 0 0 1.01-.32 3.3 1.23a11.43 11.43 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.67.25 2.9.12 3.21.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.63-5.49 5.93.43.38.82 1.11.82 2.24v3.32c0 .32.22.7.83.58C20.57 22.3 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z"/></svg>
+            </a>
+          </div>
+          <p>Lightweight JSON-based policy engine enforcing security rules on IoT edge nodes — demonstrated on a ThingsBoard-connected device network for real-time resilience in resource-constrained environments.</p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">IoT</span>
+            <span class="tag">Edge Security</span>
+            <span class="tag">Policy</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:athukarad109@gmail.com">athukarad109@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/athukarad109/" target="_blank">athukarad109</a></p>
+      <span class="section-label">// 04 — contact</span>
+      <div class="contact-wrap">
+        <h2>Let's build something secure.</h2>
+        <p>I'm always open to conversations about AI security, agentic systems, or compliance automation. Reach out — I reply fast.</p>
+        <a href="mailto:athukarad109@gmail.com" class="contact-email">athukarad109@gmail.com</a>
+      </div>
     </section>
-  </div>
+  </main>
 
   <footer>
-    <p>© 2025 Atharv Abhay Kulkarni</p>
+    <p><span class="mono">©</span> 2026 Atharv Kulkarni · Built with intention.</p>
   </footer>
 </body>
 </html>
